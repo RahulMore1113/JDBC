@@ -1,0 +1,13 @@
+mongodb+srv://rahul:<password>@atlascluster.dollxhx.mongodb.net/?retryWrites=true&w=majority
+
+
+
+ConnectionString connectionString = new ConnectionString("mongodb+srv://rahul:<password>@atlascluster.dollxhx.mongodb.net/?retryWrites=true&w=majority");
+MongoClientSettings settings = MongoClientSettings.builder()
+        .applyConnectionString(connectionString)
+        .serverApi(ServerApi.builder()
+            .version(ServerApiVersion.V1)
+            .build())
+        .build();
+MongoClient mongoClient = MongoClients.create(settings);
+MongoDatabase database = mongoClient.getDatabase("test");
